@@ -7,6 +7,8 @@ import { Search, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { offers, destinations, events } from './data/rooms.ts';
 import { useRef, useState, useEffect } from 'react';
 
+const base = import.meta.env.BASE_URL;
+
 function ImageWithFallback({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (
     <img
@@ -132,10 +134,10 @@ function App() {
           muted
           loop
           playsInline
-          poster="/images/hero/hero-1.jpg"
+          poster={`${base}images/hero/hero-1.jpg`}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/images/NainitalHeroBanner.mp4" type="video/mp4" />
+          <source src={`${base}images/NainitalHeroBanner.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30"></div>
 
@@ -168,7 +170,7 @@ function App() {
 
           <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64  md:h-90 relative">
             <ImageWithFallback
-              src="/images/Resort1.png"
+              src={`${base}images/Resort1.png`}
               alt="Azure Palms Awards"
               className="w-full h-full object-cover"
             />
@@ -255,11 +257,10 @@ function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-10">
           {[
-            { name: 'Luxury Suites', detail: 'Refined Comfort', image: '/images/SittingView.jpg' },
-            { name: 'Culinary Delights', detail: 'Local & Global Flavors', image: '/images/CloseToNature.jpg' },
-            { name: 'Best Memories', detail: 'Your Best Moments, Our Care', image: '/images/ExplorePlacesImagesCouple.jpg' },
-           { name: 'Close to Nature', detail: 'Wake up to birdsong, lush greenery, and pure tranquility.',  image: '/images/11770.jpg' 
-}
+            { name: 'Luxury Suites', detail: 'Refined Comfort', image: `${base}images/SittingView.jpg` },
+            { name: 'Culinary Delights', detail: 'Local & Global Flavors', image: `${base}images/CloseToNature.jpg` },
+            { name: 'Best Memories', detail: 'Your Best Moments, Our Care', image: `${base}images/ExplorePlacesImagesCouple.jpg` },
+            { name: 'Close to Nature', detail: 'Wake up to birdsong, lush greenery, and pure tranquility.', image: `${base}images/11770.jpg` }
           ].map((item, i) => (
             <a key={i} href="#" className="group">
               <div className="h-80 overflow-hidden bg-gray-200 rounded-sm">
@@ -280,45 +281,45 @@ function App() {
         </div>
       </section>
 
-<section className="py-16 md:py-24 bg-white">
-  <SectionHeader
-    title="Weddings & Events"
-    description="Create unforgettable memories amidst the misty hills and serene lakeside beauty of Nainital."
-  />
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
-    {[
-      { 
-        name: 'Honeymoon Retreat', 
-        desc: 'Romantic hilltop celebrations surrounded by nature', 
-        image: '/images/honeyMoon.jpg' 
-      },
-      { 
-        name: 'Dining Experience', 
-        desc: 'Fine dining with panoramic mountain views', 
-        image: '/images/DinningExperience.jpg' 
-      },
-      { 
-        name: 'Grand Banquet Hall', 
-        desc: 'Elegant wedding receptions for up to 300 guests', 
-        image: '/images/BanquetImage.jpg' 
-      }
-    ].map((item, i) => (
-      <a key={i} href="#" className="group">
-        <div className="h-72 md:h-80 overflow-hidden bg-gray-200 rounded-sm">
-          <ImageWithFallback
-            src={item.image}
-            alt={item.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-          />
+      <section className="py-16 md:py-24 bg-white">
+        <SectionHeader
+          title="Weddings & Events"
+          description="Create unforgettable memories amidst the misty hills and serene lakeside beauty of Nainital."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
+          {[
+            { 
+              name: 'Honeymoon Retreat', 
+              desc: 'Romantic hilltop celebrations surrounded by nature', 
+              image: `${base}images/honeyMoon.jpg` 
+            },
+            { 
+              name: 'Dining Experience', 
+              desc: 'Fine dining with panoramic mountain views', 
+              image: `${base}images/DinningExperience.jpg` 
+            },
+            { 
+              name: 'Grand Banquet Hall', 
+              desc: 'Elegant wedding receptions for up to 300 guests', 
+              image: `${base}images/BanquetImage.jpg` 
+            }
+          ].map((item, i) => (
+            <a key={i} href="#" className="group">
+              <div className="h-72 md:h-80 overflow-hidden bg-gray-200 rounded-sm">
+                <ImageWithFallback
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                />
+              </div>
+              <div className="pt-4 pb-3 border-b-2 border-[#B8860B]">
+                <h3 className="text-lg font-serif text-gray-800">{item.name}</h3>
+                <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+              </div>
+            </a>
+          ))}
         </div>
-        <div className="pt-4 pb-3 border-b-2 border-[#B8860B]">
-          <h3 className="text-lg font-serif text-gray-800">{item.name}</h3>
-          <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
-        </div>
-      </a>
-    ))}
-  </div>
-</section>
+      </section>
 
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
@@ -328,7 +329,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 lg:px-10">
           <div className="h-80 md:h-[28rem] overflow-hidden bg-gray-200 rounded-sm">
             <ImageWithFallback
-              src="/images/SpaImages.jpg"
+              src={`${base}images/SpaImages.jpg`}
               alt="Wellness & Spa"
               className="w-full h-full object-cover"
             />
@@ -367,7 +368,7 @@ function App() {
 
       <section className="relative h-80 md:h-96 overflow-hidden">
         <ImageWithFallback
-          src="/images/ExtraordinaryJourney.jpg"
+          src={`${base}images/ExtraordinaryJourney.jpg`}
           alt="Azure Palms Luxury Experience"
           className="w-full h-full object-cover"
         />

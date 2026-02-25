@@ -1,6 +1,6 @@
 import { Menu, X, Search, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
+const base = import.meta.env.BASE_URL;
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +23,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20 lg:h-24">
           <a href="/" className="flex items-center gap-3">
             <img
-              src="/images/Logo.png"
+              src={`${base}images/Logo.png`}
               alt="Dahlia Resort Logo"
               className="h-12 lg:h-16 w-auto object-contain"
               onError={(e) => {
