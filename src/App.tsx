@@ -149,8 +149,8 @@ function App() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="flex flex-col items-center mb-8">
-            <span className="text-2xl font-serif font-bold text-[#19223F] tracking-wider">AZURE</span>
-            <span className="text-[10px] tracking-[0.3em] text-[#19223F] uppercase">PALMS</span>
+            <span className="text-2xl font-serif font-bold text-[#19223F] tracking-wider">DAHLIA</span>
+            <span className="text-[10px] tracking-[0.3em] text-[#19223F] uppercase">RESORT</span>
           </div>
 
           <div className="flex items-center justify-center gap-6 mb-8">
@@ -162,7 +162,7 @@ function App() {
           </div>
 
           <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-            Azure Palms has been recognised as the World's Strongest Hotel Brand
+           Dahlia resort has been recognised as the World's Strongest Hotel Brand
             and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
           </p>
 
@@ -248,17 +248,18 @@ function App() {
           <div className="flex items-center gap-6 mb-8">
             <div className="w-16 h-[2px] bg-[#19223F] flex-shrink-0 hidden md:block"></div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 leading-tight">
-              Discover Azure Palms
+              Discover Dahlia Resort
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-10">
           {[
-            { name: 'Luxury Suites', detail: 'Refined Comfort', image: '/images/resort/rooms.jpg' },
-            { name: 'Culinary Delights', detail: 'Local & Global Flavors', image: '/images/resort/dining.jpg' },
-            { name: 'Oasis Spa', detail: 'Wellness & Relaxation', image: '/images/resort/spa.jpg' },
-            { name: 'Beachfront Infinity Pool', detail: 'Serenity Found', image: '/images/resort/pool.jpg' }
+            { name: 'Luxury Suites', detail: 'Refined Comfort', image: '/images/SittingView.jpg' },
+            { name: 'Culinary Delights', detail: 'Local & Global Flavors', image: '/images/CloseToNature.jpg' },
+            { name: 'Best Memories', detail: 'Your Best Moments, Our Care', image: '/images/ExplorePlacesImagesCouple.jpg' },
+           { name: 'Close to Nature', detail: 'Wake up to birdsong, lush greenery, and pure tranquility.',  image: '/images/11770.jpg' 
+}
           ].map((item, i) => (
             <a key={i} href="#" className="group">
               <div className="h-80 overflow-hidden bg-gray-200 rounded-sm">
@@ -279,33 +280,45 @@ function App() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white">
-        <SectionHeader
-          title="Dining Experiences"
-          description="Embark on a culinary journey crafted by award-winning chefs across our globally inspired restaurants."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
-          {[
-            { name: 'The Azure Restaurant', desc: 'Fine dining with ocean views', image: '/images/dining/restaurant-1.jpg' },
-            { name: 'Sunset Terrace', desc: 'Al fresco cocktails & light bites', image: '/images/dining/lounge-1.jpg' },
-            { name: 'Beachfront Grill', desc: 'Fresh seafood & premium cuts', image: '/images/dining/grill-1.jpg' }
-          ].map((item, i) => (
-            <a key={i} href="#" className="group">
-              <div className="h-72 md:h-80 overflow-hidden bg-gray-200 rounded-sm">
-                <ImageWithFallback
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                />
-              </div>
-              <div className="pt-4 pb-3 border-b-2 border-[#B8860B]">
-                <h3 className="text-lg font-serif text-gray-800">{item.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
-              </div>
-            </a>
-          ))}
+<section className="py-16 md:py-24 bg-white">
+  <SectionHeader
+    title="Weddings & Events"
+    description="Create unforgettable memories amidst the misty hills and serene lakeside beauty of Nainital."
+  />
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
+    {[
+      { 
+        name: 'Honeymoon Retreat', 
+        desc: 'Romantic hilltop celebrations surrounded by nature', 
+        image: '/images/honeyMoon.jpg' 
+      },
+      { 
+        name: 'Dining Experience', 
+        desc: 'Fine dining with panoramic mountain views', 
+        image: '/images/DinningExperience.jpg' 
+      },
+      { 
+        name: 'Grand Banquet Hall', 
+        desc: 'Elegant wedding receptions for up to 300 guests', 
+        image: '/images/BanquetImage.jpg' 
+      }
+    ].map((item, i) => (
+      <a key={i} href="#" className="group">
+        <div className="h-72 md:h-80 overflow-hidden bg-gray-200 rounded-sm">
+          <ImageWithFallback
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+          />
         </div>
-      </section>
+        <div className="pt-4 pb-3 border-b-2 border-[#B8860B]">
+          <h3 className="text-lg font-serif text-gray-800">{item.name}</h3>
+          <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
 
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
@@ -315,7 +328,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 lg:px-10">
           <div className="h-80 md:h-[28rem] overflow-hidden bg-gray-200 rounded-sm">
             <ImageWithFallback
-              src="/images/spa/spa-main.jpg"
+              src="/images/SpaImages.jpg"
               alt="Wellness & Spa"
               className="w-full h-full object-cover"
             />
@@ -354,7 +367,7 @@ function App() {
 
       <section className="relative h-80 md:h-96 overflow-hidden">
         <ImageWithFallback
-          src="/images/banner/banner.jpg"
+          src="/images/ExtraordinaryJourney.jpg"
           alt="Azure Palms Luxury Experience"
           className="w-full h-full object-cover"
         />
