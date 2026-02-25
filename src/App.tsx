@@ -134,7 +134,7 @@ function App() {
           muted
           loop
           playsInline
-          poster={`${base}images/hero/hero-1.jpg`}
+          // poster={`${base}images/hero/hero-1.jpg`}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={`${base}images/NainitalHeroBanner.mp4`} type="video/mp4" />
