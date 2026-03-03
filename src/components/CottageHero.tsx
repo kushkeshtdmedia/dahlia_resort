@@ -27,7 +27,7 @@ export default function CottageHero({ searchQuery, onSearchChange }: CottageHero
         </div>
 
         <div className="w-full max-w-3xl -mb-7 relative z-20">
-          <div className="bg-white rounded-sm shadow-xl flex items-center px-5 py-4">
+          {/* <div className="bg-white rounded-sm shadow-xl flex items-center px-5 py-4">
             <Search size={20} className="text-gray-400 flex-shrink-0" />
             <input
               type="text"
@@ -36,7 +36,7 @@ export default function CottageHero({ searchQuery, onSearchChange }: CottageHero
               onChange={(e) => onSearchChange(e.target.value)}
               className="flex-1 ml-4 text-gray-700 text-base outline-none placeholder:text-gray-400"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
