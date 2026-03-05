@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+const base = import.meta.env.BASE_URL;
 
 export default function Footer() {
   return (
@@ -6,7 +7,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-bold mb-4 tracking-wider">Dahila Resort</h3>
+            <img
+              src={`${base}images/MainLogo-removebg-preview.png`}
+              alt="Dahlia Resort Logo"
+              className="h-14 w-auto object-contain brightness-0 invert mb-4"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'block';
+              }}
+            />
+            <h3 className="text-3xl font-bold mb-4 tracking-wider" style={{ display: 'none' }}>
+              Dahlia Resort
+            </h3>
             <p className="text-gray-400 mb-6 max-w-md">
               A destination where timeless luxury meets contemporary elegance. Experience world-class hospitality in an unparalleled setting.
             </p>
@@ -72,7 +85,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Dahila Resort. All rights reserved.
+              &copy; {new Date().getFullYear()} Dahlia Resort. All rights reserved.
             </p>
             <div className="flex flex-wrap gap-6 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition">Privacy Policy</a>
