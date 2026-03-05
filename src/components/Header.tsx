@@ -1,6 +1,7 @@
-import { Menu, X, Search, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 const base = import.meta.env.BASE_URL;
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -14,18 +15,18 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white shadow-md'
-          : 'bg-transparent'
+        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex justify-between items-center h-20 lg:h-24">
+
+          {/* Logo */}
           <a href="/" className="flex items-center gap-3">
             <img
-              src={`${base}images/MainLogo.jpeg`}
+              src={`${base}images/MainLogo-removebg-preview.png`}
               alt="Dahlia Resort Logo"
-              className="h-12 lg:h-16 w-auto object-contain"
+              className="h-12 lg:h-16 w-auto object-contain brightness-0 invert"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 const textLogo = e.currentTarget.nextElementSibling as HTMLElement;
@@ -33,23 +34,16 @@ export default function Header() {
               }}
             />
             <div className="flex flex-col items-center leading-none" style={{ display: 'none' }}>
-              <span
-                className={`text-2xl lg:text-3xl font-serif font-bold tracking-wider transition-colors duration-300 ${
-                  scrolled ? 'text-[#19223F]' : 'text-white'
-                }`}
-              >
+              <span className="text-2xl lg:text-3xl font-serif font-bold tracking-wider text-white">
                 DAHLIA
               </span>
-              <span
-                className={`text-[10px] tracking-[0.3em] uppercase transition-colors duration-300 ${
-                  scrolled ? 'text-[#19223F]' : 'text-white/80'
-                }`}
-              >
+              <span className="text-[10px] tracking-[0.3em] uppercase text-white/80">
                 RESORT
               </span>
             </div>
           </a>
 
+          {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center space-x-10">
             {['Destinations', 'Cottages', 'Hotels', 'Experiences', 'Offers'].map((item) => (
               <a
@@ -75,6 +69,7 @@ export default function Header() {
             </button>
           </div>
 
+          {/* Desktop Right Actions */}
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="/contact"
@@ -94,8 +89,11 @@ export default function Header() {
             </a>
           </div>
 
+          {/* Mobile Hamburger */}
           <button
-            className={`lg:hidden transition-colors duration-300 ${scrolled ? 'text-gray-700' : 'text-white'}`}
+            className={`lg:hidden transition-colors duration-300 ${
+              scrolled ? 'text-gray-700' : 'text-white'
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -103,10 +101,11 @@ export default function Header() {
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t shadow-lg">
           <div className="px-6 py-6 space-y-4">
-            {[ 'Cottages', 'Hotels', 'Experiences', 'Offers', 'Memberships'].map((item) => (
+            {['Cottages', 'Hotels', 'Experiences', 'Offers', 'Memberships'].map((item) => (
               <a
                 key={item}
                 href={item === 'Cottages' ? '/cottages' : `#${item.toLowerCase()}`}
