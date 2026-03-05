@@ -134,7 +134,6 @@ function App() {
           muted
           loop
           playsInline
-          // poster={`${base}images/hero/hero-1.jpg`}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={`${base}images/NainitalHeroBanner.mp4`} type="video/mp4" />
@@ -321,6 +320,7 @@ function App() {
         </div>
       </section>
 
+      {/* UPDATED WELLNESS & SPA SECTION */}
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
           title="Wellness & Spa"
@@ -341,31 +341,29 @@ function App() {
               From signature rituals inspired by local traditions to modern hydrotherapy,
               every experience is crafted to rejuvenate your body, mind, and spirit.
             </p>
+            {/* Grey Bullets Implementation */}
             <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#B8860B]"></div>
-                <span className="text-gray-700">Signature Rituals & Treatments</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#B8860B]"></div>
-                <span className="text-gray-700">Thermal Pools & Hydrotherapy</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#B8860B]"></div>
-                <span className="text-gray-700">Yoga & Meditation Sessions</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#B8860B]"></div>
-                <span className="text-gray-700">State-of-the-Art Fitness Centre</span>
-              </div>
+              {[
+                'Signature Rituals & Treatments',
+                'Thermal Pools & Hydrotherapy',
+                'Yoga & Meditation Sessions',
+                'State-of-the-Art Fitness Centre'
+              ].map((text, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gray-400"></div>
+                  <span className="text-gray-700 font-medium">{text}</span>
+                </div>
+              ))}
             </div>
-            <a href="#" className="inline-flex items-center gap-2 text-[#B8860B] font-semibold uppercase text-sm tracking-wider hover:gap-3 transition-all">
+            {/* Grey "Explore Spa" Link */}
+            <a href="#" className="inline-flex items-center gap-2 text-gray-600 font-semibold uppercase text-sm tracking-wider hover:text-gray-900 hover:gap-3 transition-all">
               Explore Spa <ArrowRight size={16} />
             </a>
           </div>
         </div>
       </section>
 
+      {/* UPDATED FOOTER HERO / BOOK NOW SECTION */}
       <section className="relative h-80 md:h-96 overflow-hidden">
         <ImageWithFallback
           src={`${base}images/ExtraordinaryJourney.jpg`}
@@ -378,9 +376,10 @@ function App() {
             <p className="text-base md:text-lg text-gray-200 mb-8">
               Discover the world's finest luxury hospitality experiences with Azure Palms
             </p>
+            {/* Updated Grey "Book Your Stay" Button */}
             <a
               href="#"
-              className="inline-block bg-[#B8860B] text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-[#a07609] transition"
+              className="inline-block bg-gray-700 text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-gray-800 transition shadow-xl"
             >
               Book Your Stay
             </a>

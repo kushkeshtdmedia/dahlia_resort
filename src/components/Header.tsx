@@ -83,7 +83,7 @@ export default function Header() {
             </a>
             <a
               href="#"
-              className="bg-[#19223F] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-[#0f1529] transition"
+              className="bg-[#FF8C00] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-[#e07a00] transition"
             >
               Book a Stay
             </a>
@@ -125,7 +125,7 @@ export default function Header() {
               </a>
               <a
                 href="#"
-                className="block text-center bg-[#19223F] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase"
+                className="block text-center bg-[#FF8C00] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-[#e07a00] transition"
               >
                 Book a Stay
               </a>
