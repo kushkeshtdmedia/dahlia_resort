@@ -23,7 +23,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20 lg:h-24">
           <a href="/" className="flex items-center gap-3">
             <img
-              src={`${base}images/Logo.png`}
+              src={`${base}images/MainLogo.jpeg`}
               alt="Dahlia Resort Logo"
               className="h-12 lg:h-16 w-auto object-contain"
               onError={(e) => {
