@@ -93,7 +93,7 @@ function App() {
     };
   }, []);
 
-  if (currentPath === '/contact') {
+  if (currentPath === '/dahlia_resort/contact' || currentPath === '/contact') {
     return (
       <div className="min-h-screen bg-white">
         <Header />
@@ -103,7 +103,7 @@ function App() {
     );
   }
 
-  if (currentPath === '/cottages') {
+  if (currentPath === '/dahlia_resort/cottages' || currentPath === '/cottages') {
     return (
       <div className="min-h-screen bg-white">
         <Header />
@@ -113,7 +113,7 @@ function App() {
     );
   }
 
-  const cottageMatch = currentPath.match(/^\/cottage\/(.+)$/);
+  const cottageMatch = currentPath.match(/^\/(?:dahlia_resort\/)?cottage\/(.+)$/);
   if (cottageMatch) {
     return (
       <div className="min-h-screen bg-white">
@@ -139,7 +139,6 @@ function App() {
           <source src={`${base}images/NainitalHeroBanner.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/30"></div>
-
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
           <button className="w-14 h-14 rounded-full bg-[#B8860B] text-white flex items-center justify-center hover:bg-[#a07609] transition shadow-lg">
             <Search size={24} />
@@ -153,7 +152,6 @@ function App() {
             <span className="text-2xl font-serif font-bold text-[#19223F] tracking-wider">DAHLIA</span>
             <span className="text-[10px] tracking-[0.3em] text-[#19223F] uppercase">RESORT</span>
           </div>
-
           <div className="flex items-center justify-center gap-6 mb-8">
             <div className="w-16 h-[2px] bg-gray-300"></div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 leading-tight">
@@ -161,13 +159,11 @@ function App() {
             </h2>
             <div className="w-16 h-[2px] bg-gray-300"></div>
           </div>
-
           <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-           Dahlia resort has been recognised as the World's Strongest Hotel Brand
+            Dahlia resort has been recognised as the World's Strongest Hotel Brand
             and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
           </p>
-
-          <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64  md:h-90 relative">
+          <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64 md:h-90 relative">
             <ImageWithFallback
               src={`${base}images/Resort1.png`}
               alt="Azure Palms Awards"
@@ -253,7 +249,6 @@ function App() {
             </h2>
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-10">
           {[
             { name: 'Luxury Suites', detail: 'Refined Comfort', image: `${base}images/SittingView.jpg` },
@@ -270,9 +265,7 @@ function App() {
                 />
               </div>
               <div className="pt-4">
-                <h3 className="text-base font-semibold text-gray-800 group-hover:text-[#B8860B] transition">
-                  {item.name}
-                </h3>
+                <h3 className="text-base font-semibold text-gray-800 group-hover:text-[#B8860B] transition">{item.name}</h3>
                 <p className="text-sm text-gray-500 mt-1">{item.detail}</p>
               </div>
             </a>
@@ -287,21 +280,9 @@ function App() {
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
           {[
-            { 
-              name: 'Honeymoon Retreat', 
-              desc: 'Romantic hilltop celebrations surrounded by nature', 
-              image: `${base}images/honeyMoon.jpg` 
-            },
-            { 
-              name: 'Dining Experience', 
-              desc: 'Fine dining with panoramic mountain views', 
-              image: `${base}images/DinningExperience.jpg` 
-            },
-            { 
-              name: 'Grand Banquet Hall', 
-              desc: 'Elegant wedding receptions for up to 300 guests', 
-              image: `${base}images/BanquetImage.jpg` 
-            }
+            { name: 'Honeymoon Retreat', desc: 'Romantic hilltop celebrations surrounded by nature', image: `${base}images/honeyMoon.jpg` },
+            { name: 'Dining Experience', desc: 'Fine dining with panoramic mountain views', image: `${base}images/DinningExperience.jpg` },
+            { name: 'Grand Banquet Hall', desc: 'Elegant wedding receptions for up to 300 guests', image: `${base}images/BanquetImage.jpg` }
           ].map((item, i) => (
             <a key={i} href="#" className="group">
               <div className="h-72 md:h-80 overflow-hidden bg-gray-200 rounded-sm">
@@ -320,7 +301,6 @@ function App() {
         </div>
       </section>
 
-      {/* UPDATED WELLNESS & SPA SECTION */}
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
           title="Wellness & Spa"
@@ -341,21 +321,14 @@ function App() {
               From signature rituals inspired by local traditions to modern hydrotherapy,
               every experience is crafted to rejuvenate your body, mind, and spirit.
             </p>
-            {/* Grey Bullets Implementation */}
             <div className="space-y-4 mb-8">
-              {[
-                'Signature Rituals & Treatments',
-                'Thermal Pools & Hydrotherapy',
-                'Yoga & Meditation Sessions',
-                'State-of-the-Art Fitness Centre'
-              ].map((text, idx) => (
+              {['Signature Rituals & Treatments', 'Thermal Pools & Hydrotherapy', 'Yoga & Meditation Sessions', 'State-of-the-Art Fitness Centre'].map((text, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-gray-400"></div>
                   <span className="text-gray-700 font-medium">{text}</span>
                 </div>
               ))}
             </div>
-            {/* Grey "Explore Spa" Link */}
             <a href="#" className="inline-flex items-center gap-2 text-gray-600 font-semibold uppercase text-sm tracking-wider hover:text-gray-900 hover:gap-3 transition-all">
               Explore Spa <ArrowRight size={16} />
             </a>
@@ -363,7 +336,6 @@ function App() {
         </div>
       </section>
 
-      {/* UPDATED FOOTER HERO / BOOK NOW SECTION */}
       <section className="relative h-80 md:h-96 overflow-hidden">
         <ImageWithFallback
           src={`${base}images/ExtraordinaryJourney.jpg`}
@@ -376,11 +348,7 @@ function App() {
             <p className="text-base md:text-lg text-gray-200 mb-8">
               Discover the world's finest luxury hospitality experiences with Azure Palms
             </p>
-            {/* Updated Grey "Book Your Stay" Button */}
-            <a
-              href="#"
-              className="inline-block bg-gray-700 text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-gray-800 transition shadow-xl"
-            >
+            <a href="#" className="inline-block bg-gray-700 text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-gray-800 transition shadow-xl">
               Book Your Stay
             </a>
           </div>
