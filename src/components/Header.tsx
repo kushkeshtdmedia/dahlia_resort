@@ -26,7 +26,10 @@ export default function Header() {
             <img
               src={`${base}images/MainLogo-removebg-preview.png`}
               alt="Dahlia Resort Logo"
-              className="h-12 lg:h-16 w-auto object-contain brightness-0 invert"
+              className={`h-16 lg:h-24 w-auto object-contain transition-all duration-300 ${
+                scrolled ? '' : 'brightness-0 invert'
+              }`}
+              style={scrolled ? { filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1000%) hue-rotate(360deg) brightness(101%) contrast(101%)' } : {}}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 const textLogo = e.currentTarget.nextElementSibling as HTMLElement;
@@ -34,56 +37,106 @@ export default function Header() {
               }}
             />
             <div className="flex flex-col items-center leading-none" style={{ display: 'none' }}>
-              <span className="text-2xl lg:text-3xl font-serif font-bold tracking-wider text-white">
+              <span
+                className="text-2xl lg:text-3xl font-serif font-bold tracking-wider transition-colors duration-300"
+                style={{ color: scrolled ? '#FF8C00' : '#ffffff' }}
+              >
                 DAHLIA
               </span>
-              <span className="text-[10px] tracking-[0.3em] uppercase text-white/80">
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase transition-colors duration-300"
+                style={{ color: scrolled ? '#FF8C00' : 'rgba(255,255,255,0.8)' }}
+              >
                 RESORT
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-10" style={{ perspective: '600px' }}>
             {['Destinations', 'Cottages', 'Hotels', 'Experiences', 'Offers'].map((item) => (
               <a
                 key={item}
                 href={item === 'Cottages' ? '/cottages' : `#${item.toLowerCase()}`}
-                className={`text-sm font-medium tracking-wider uppercase transition-colors duration-300 ${
-                  scrolled
-                    ? 'text-gray-700 hover:text-[#19223F]'
-                    : 'text-white hover:text-white/70'
-                }`}
+                className="text-sm font-medium tracking-wider uppercase transition-all duration-300"
+                style={{
+                  color: scrolled ? '#FF8C00' : '#ffffff',
+                  transformStyle: 'preserve-3d',
+                  display: 'inline-block',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateZ(20px) scale(1.08)';
+                  e.currentTarget.style.textShadow = scrolled
+                    ? '0 2px 8px rgba(255,140,0,0.35)'
+                    : '0 2px 8px rgba(255,255,255,0.4)';
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateZ(0) scale(1)';
+                  e.currentTarget.style.textShadow = 'none';
+                }}
               >
                 {item}
               </a>
             ))}
             <button
-              className={`text-sm font-medium tracking-wider uppercase flex items-center gap-1 transition-colors duration-300 ${
-                scrolled
-                  ? 'text-gray-700 hover:text-[#19223F]'
-                  : 'text-white hover:text-white/70'
-              }`}
+              className="text-sm font-medium tracking-wider uppercase flex items-center gap-1 transition-all duration-300"
+              style={{
+                color: scrolled ? '#FF8C00' : '#ffffff',
+                transformStyle: 'preserve-3d',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateZ(20px) scale(1.08)';
+                e.currentTarget.style.textShadow = scrolled
+                  ? '0 2px 8px rgba(255,140,0,0.35)'
+                  : '0 2px 8px rgba(255,255,255,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateZ(0) scale(1)';
+                e.currentTarget.style.textShadow = 'none';
+              }}
             >
               More <ChevronDown size={16} />
             </button>
           </div>
 
           {/* Desktop Right Actions */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6" style={{ perspective: '600px' }}>
             <a
               href="/contact"
-              className={`text-sm font-medium tracking-wider uppercase transition-colors duration-300 ${
-                scrolled
-                  ? 'text-gray-700 hover:text-[#19223F]'
-                  : 'text-white hover:text-white/70'
-              }`}
+              className="text-sm font-medium tracking-wider uppercase transition-all duration-300"
+              style={{
+                color: scrolled ? '#FF8C00' : '#ffffff',
+                transformStyle: 'preserve-3d',
+                display: 'inline-block',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateZ(20px) scale(1.08)';
+                e.currentTarget.style.textShadow = scrolled
+                  ? '0 2px 8px rgba(255,140,0,0.35)'
+                  : '0 2px 8px rgba(255,255,255,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateZ(0) scale(1)';
+                e.currentTarget.style.textShadow = 'none';
+              }}
             >
               Contact Us
             </a>
             <a
               href="#"
-              className="bg-[#FF8C00] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-[#e07a00] transition"
+              className="bg-[#FF8C00] text-white px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300"
+              style={{ transformStyle: 'preserve-3d', display: 'inline-block' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateZ(16px) scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(255,140,0,0.45)';
+                e.currentTarget.style.backgroundColor = '#e07a00';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateZ(0) scale(1)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.backgroundColor = '#FF8C00';
+              }}
             >
               Book a Stay
             </a>
@@ -91,9 +144,8 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className={`lg:hidden transition-colors duration-300 ${
-              scrolled ? 'text-gray-700' : 'text-white'
-            }`}
+            className="lg:hidden transition-colors duration-300"
+            style={{ color: scrolled ? '#FF8C00' : '#ffffff' }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -109,7 +161,8 @@ export default function Header() {
               <a
                 key={item}
                 href={item === 'Cottages' ? '/cottages' : `#${item.toLowerCase()}`}
-                className="block text-gray-700 hover:text-[#19223F] transition font-medium tracking-wider uppercase text-sm py-2"
+                className="block hover:text-[#FF8C00] transition font-medium tracking-wider uppercase text-sm py-2"
+                style={{ color: '#374151' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}
@@ -118,7 +171,8 @@ export default function Header() {
             <div className="pt-4 border-t space-y-3">
               <a
                 href="/contact"
-                className="block text-gray-700 font-medium tracking-wider uppercase text-sm py-2"
+                className="block font-medium tracking-wider uppercase text-sm py-2"
+                style={{ color: '#374151' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us

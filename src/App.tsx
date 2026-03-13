@@ -26,10 +26,10 @@ function SectionHeader({ title, description }: { title: string; description: str
   return (
     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12 px-6 lg:px-10">
       <div className="flex items-center gap-6">
-        <div className="w-16 h-[2px] bg-[#19223F] flex-shrink-0 hidden md:block"></div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 leading-tight">{title}</h2>
+        <div className="w-16 h-[2px] bg-[#FF8C00] flex-shrink-0 hidden md:block"></div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#FF8C00] leading-tight">{title}</h2>
       </div>
-      <p className="text-gray-600 md:max-w-md lg:max-w-lg text-base leading-relaxed md:pt-2">{description}</p>
+      <p className="text-[#FF8C00] md:max-w-md lg:max-w-lg text-base leading-relaxed md:pt-2">{description}</p>
     </div>
   );
 }
@@ -128,6 +128,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
 
+      {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <video
           autoPlay
@@ -140,26 +141,27 @@ function App() {
         </video>
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
-          <button className="w-14 h-14 rounded-full bg-[#B8860B] text-white flex items-center justify-center hover:bg-[#a07609] transition shadow-lg">
+          <button className="w-14 h-14 rounded-full bg-[#FF8C00] text-white flex items-center justify-center hover:bg-[#e07a00] transition shadow-lg">
             <Search size={24} />
           </button>
         </div>
       </section>
 
+      {/* Intro Section */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="flex flex-col items-center mb-8">
-            <span className="text-2xl font-serif font-bold text-[#19223F] tracking-wider">DAHLIA</span>
-            <span className="text-[10px] tracking-[0.3em] text-[#19223F] uppercase">RESORT</span>
+            <span className="text-2xl font-serif font-bold text-[#FF8C00] tracking-wider">DAHLIA</span>
+            <span className="text-[10px] tracking-[0.3em] text-[#FF8C00] uppercase">RESORT</span>
           </div>
           <div className="flex items-center justify-center gap-6 mb-8">
-            <div className="w-16 h-[2px] bg-gray-300"></div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 leading-tight">
+            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#FF8C00] leading-tight">
               Luxury Redefined, Globally Acclaimed
             </h2>
-            <div className="w-16 h-[2px] bg-gray-300"></div>
+            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
           </div>
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
             Dahlia resort has been recognised as the World's Strongest Hotel Brand
             and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
           </p>
@@ -173,6 +175,7 @@ function App() {
         </div>
       </section>
 
+      {/* Offers / Resort View */}
       <section id="offers" className="py-16 md:py-24 bg-white">
         <SectionHeader
           title="Our Resort View"
@@ -188,15 +191,16 @@ function App() {
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>
-              <div className="pt-4 pb-2 border-b-2 border-[#B8860B]">
-                <h3 className="text-lg font-serif text-gray-800 mb-1">{offer.title}</h3>
-                <p className="text-sm text-gray-500">{offer.subtitle}</p>
+              <div className="pt-4 pb-2 border-b-2 border-[#FF8C00]">
+                <h3 className="text-lg font-serif text-[#FF8C00] mb-1">{offer.title}</h3>
+                <p className="text-sm text-[#FF8C00]/70">{offer.subtitle}</p>
               </div>
             </a>
           ))}
         </ScrollableRow>
       </section>
 
+      {/* Destinations */}
       <section id="destinations" className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
           title="Explore Places"
@@ -217,6 +221,7 @@ function App() {
         </ScrollableRow>
       </section>
 
+      {/* Experiences */}
       <section id="experiences" className="py-16 md:py-24 bg-white">
         <SectionHeader
           title="Premium & Luxury Feeling"
@@ -232,19 +237,20 @@ function App() {
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>
-              <div className="bg-white py-4 border-b border-gray-200">
-                <h3 className="text-lg font-serif text-[#B8860B] tracking-wide uppercase">{event.title}</h3>
+              <div className="bg-white py-4 border-b border-[#FF8C00]/30">
+                <h3 className="text-lg font-serif text-[#FF8C00] tracking-wide uppercase">{event.title}</h3>
               </div>
             </a>
           ))}
         </div>
       </section>
 
+      {/* Discover Dahlia Resort */}
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <div className="px-6 lg:px-10">
           <div className="flex items-center gap-6 mb-8">
-            <div className="w-16 h-[2px] bg-[#19223F] flex-shrink-0 hidden md:block"></div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 leading-tight">
+            <div className="w-16 h-[2px] bg-[#FF8C00] flex-shrink-0 hidden md:block"></div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#FF8C00] leading-tight">
               Discover Dahlia Resort
             </h2>
           </div>
@@ -265,14 +271,15 @@ function App() {
                 />
               </div>
               <div className="pt-4">
-                <h3 className="text-base font-semibold text-gray-800 group-hover:text-[#B8860B] transition">{item.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{item.detail}</p>
+                <h3 className="text-base font-semibold text-[#FF8C00] transition">{item.name}</h3>
+                <p className="text-sm text-[#FF8C00]/70 mt-1">{item.detail}</p>
               </div>
             </a>
           ))}
         </div>
       </section>
 
+      {/* Weddings & Events */}
       <section className="py-16 md:py-24 bg-white">
         <SectionHeader
           title="Weddings & Events"
@@ -292,15 +299,16 @@ function App() {
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                 />
               </div>
-              <div className="pt-4 pb-3 border-b-2 border-[#B8860B]">
-                <h3 className="text-lg font-serif text-gray-800">{item.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+              <div className="pt-4 pb-3 border-b-2 border-[#FF8C00]">
+                <h3 className="text-lg font-serif text-[#FF8C00]">{item.name}</h3>
+                <p className="text-sm text-[#FF8C00]/70 mt-1">{item.desc}</p>
               </div>
             </a>
           ))}
         </div>
       </section>
 
+      {/* Wellness & Spa */}
       <section className="py-16 md:py-24 bg-[#f5f5f0]">
         <SectionHeader
           title="Wellness & Spa"
@@ -315,8 +323,8 @@ function App() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className="text-3xl font-serif text-gray-800 mb-6">The Serenity Spa</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <h3 className="text-3xl font-serif text-[#FF8C00] mb-6">The Serenity Spa</h3>
+            <p className="text-[#FF8C00]/80 leading-relaxed mb-6">
               Our award-winning spa offers personalised treatments designed to restore balance and vitality.
               From signature rituals inspired by local traditions to modern hydrotherapy,
               every experience is crafted to rejuvenate your body, mind, and spirit.
@@ -324,18 +332,19 @@ function App() {
             <div className="space-y-4 mb-8">
               {['Signature Rituals & Treatments', 'Thermal Pools & Hydrotherapy', 'Yoga & Meditation Sessions', 'State-of-the-Art Fitness Centre'].map((text, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-gray-400"></div>
-                  <span className="text-gray-700 font-medium">{text}</span>
+                  <div className="w-2 h-2 rounded-full bg-[#FF8C00]"></div>
+                  <span className="text-[#FF8C00] font-medium">{text}</span>
                 </div>
               ))}
             </div>
-            <a href="#" className="inline-flex items-center gap-2 text-gray-600 font-semibold uppercase text-sm tracking-wider hover:text-gray-900 hover:gap-3 transition-all">
+            <a href="#" className="inline-flex items-center gap-2 text-[#FF8C00] font-semibold uppercase text-sm tracking-wider hover:text-[#e07a00] hover:gap-3 transition-all">
               Explore Spa <ArrowRight size={16} />
             </a>
           </div>
         </div>
       </section>
 
+      {/* CTA Banner */}
       <section className="relative h-80 md:h-96 overflow-hidden">
         <ImageWithFallback
           src={`${base}images/ExtraordinaryJourney.jpg`}
@@ -343,12 +352,12 @@ function App() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[#19223F]/60 flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-serif mb-4">Begin Your Extraordinary Journey</h2>
-            <p className="text-base md:text-lg text-gray-200 mb-8">
-              Discover the world's finest luxury hospitality experiences with Azure Palms
+          <div className="text-center px-6 max-w-3xl">
+            <h2 className="text-3xl md:text-5xl font-serif text-[#FF8C00] mb-4">Begin Your Extraordinary Journey</h2>
+            <p className="text-base md:text-lg text-[#FF8C00]/80 mb-8">
+              Discover the world's finest luxury hospitality experiences with Dahlia Resort
             </p>
-            <a href="#" className="inline-block bg-gray-700 text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-gray-800 transition shadow-xl">
+            <a href="#" className="inline-block bg-[#FF8C00] text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-[#e07a00] transition shadow-xl">
               Book Your Stay
             </a>
           </div>
