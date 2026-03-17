@@ -1,101 +1,127 @@
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 const base = import.meta.env.BASE_URL;
 
+const RESORT_LOCATION = 'Bhimtal,+Nainital,+Uttarakhand,+India';
+const RESORT_COORDS = '29.3460,79.5580';
+
+function handleAddressClick(e: React.MouseEvent) {
+  e.preventDefault();
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${RESORT_COORDS}&destination_place_id=&travelmode=driving`;
+  window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+}
+
 export default function Footer() {
+  const brandColor = 'rgb(255, 140, 0)';
+
   return (
-    <footer style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #FFFCF7 50%, #FFF9F0 100%)' }}>
+    <footer style={{ background: 'linear-gradient(180deg, #FFFDF9 0%, #FFFAF3 50%, #FFF6EB 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+
           <div className="lg:col-span-2">
             <img
               src={`${base}images/MainLogo-removebg-preview.png`}
               alt="Dahlia Resort Logo"
               className="h-24 lg:h-32 w-auto object-contain mb-5"
-              style={{ filter: 'brightness(0) saturate(100%) invert(40%) sepia(90%) saturate(800%) hue-rotate(10deg) brightness(95%) contrast(100%)' }}
+              style={{ filter: 'invert(58%) sepia(81%) saturate(2250%) hue-rotate(10deg) brightness(101%) contrast(105%)' }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
-                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = 'block';
               }}
             />
-            <h3 className="text-4xl font-bold mb-5 tracking-wider text-[#CC7000]" style={{ display: 'none' }}>
-              Dahlia Resort
-            </h3>
-            <p className="text-[#B06200] mb-6 max-w-md text-base leading-relaxed">
+            <p className="mb-6 max-w-md text-base leading-relaxed" style={{ color: brandColor }}>
               A destination where timeless luxury meets contemporary elegance. Experience world-class hospitality in an unparalleled setting.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-[#FF8C00]/20 p-2.5 rounded-full hover:bg-[#CC7000] text-[#CC7000] hover:text-white transition">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="bg-[#FF8C00]/20 p-2.5 rounded-full hover:bg-[#CC7000] text-[#CC7000] hover:text-white transition">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="bg-[#FF8C00]/20 p-2.5 rounded-full hover:bg-[#CC7000] text-[#CC7000] hover:text-white transition">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="bg-[#FF8C00]/20 p-2.5 rounded-full hover:bg-[#CC7000] text-[#CC7000] hover:text-white transition">
-                <Youtube size={20} />
-              </a>
+              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="p-2.5 rounded-full transition hover:bg-[rgb(255,140,0)] hover:text-white"
+                  style={{ background: 'rgba(255,140,0,0.12)', color: brandColor }}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h4 className="text-base font-bold mb-5 uppercase tracking-wider text-[#CC7000]">Our Resort</h4>
-            <ul className="space-y-3 text-[#B06200] text-[15px]">
-              <li><a href="#rooms" className="hover:text-[#CC7000] transition">Rooms & Suites</a></li>
-              <li><a href="#dining" className="hover:text-[#CC7000] transition">Dining</a></li>
-              <li><a href="#wellness" className="hover:text-[#CC7000] transition">Spa & Wellness</a></li>
-              <li><a href="#experiences" className="hover:text-[#CC7000] transition">Experiences</a></li>
-              <li><a href="#offers" className="hover:text-[#CC7000] transition">Special Offers</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">Gallery</a></li>
+            <h4 className="text-base font-bold mb-5 uppercase tracking-wider" style={{ color: brandColor }}>Our Resort</h4>
+            <ul className="space-y-3 text-[15px]">
+              {[
+                ['Rooms & Suites', '#rooms'],
+                ['Dining', '#dining'],
+                ['Spa & Wellness', '#wellness'],
+                ['Experiences', '#experiences'],
+                ['Special Offers', '#offers'],
+                ['Gallery', '#'],
+              ].map(([label, href], i) => (
+                <li key={i}>
+                  <a href={href} style={{ color: brandColor }} className="transition hover:opacity-70 font-medium">{label}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-base font-bold mb-5 uppercase tracking-wider text-[#CC7000]">Guest Services</h4>
-            <ul className="space-y-3 text-[#B06200] text-[15px]">
-              <li><a href="#" className="hover:text-[#CC7000] transition">Reservations</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">Concierge</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">Events & Weddings</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">Business Services</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">Gift Cards</a></li>
-              <li><a href="#" className="hover:text-[#CC7000] transition">FAQs</a></li>
+            <h4 className="text-base font-bold mb-5 uppercase tracking-wider" style={{ color: brandColor }}>Guest Services</h4>
+            <ul className="space-y-3 text-[15px]">
+              {['Reservations', 'Concierge', 'Events & Weddings', 'Business Services', 'Gift Cards', 'FAQs'].map((item, i) => (
+                <li key={i}>
+                  <a href="#" style={{ color: brandColor }} className="transition hover:opacity-70 font-medium">{item}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-base font-bold mb-5 uppercase tracking-wider text-[#CC7000]">Contact</h4>
-            <ul className="space-y-4 text-[#B06200] text-[15px]">
+            <h4 className="text-base font-bold mb-5 uppercase tracking-wider" style={{ color: brandColor }}>Contact</h4>
+            <ul className="space-y-4 text-[15px]">
               <li className="flex items-start gap-3">
-                <MapPin size={20} className="flex-shrink-0 mt-1 text-[#CC7000]" />
-                <span>123 Paradise Beach Road<br />Coastal City, CC 12345</span>
+                <MapPin size={20} className="flex-shrink-0 mt-1" style={{ color: brandColor }} />
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${RESORT_COORDS}&travelmode=driving`}
+                  onClick={handleAddressClick}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:opacity-70 underline-offset-2 hover:underline cursor-pointer"
+                  style={{ color: brandColor }}
+                >
+                  Bhimtal, Nainital<br />Uttarakhand, India
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={20} className="text-[#CC7000]" />
-                <a href="tel:+1234567890" className="hover:text-[#CC7000] transition">+1 (234) 567-890</a>
+                <Phone size={20} style={{ color: brandColor }} />
+                <a href="tel:+1234567890" style={{ color: brandColor }} className="transition hover:opacity-70">
+                  +1 (234) 567-890
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={20} className="text-[#CC7000]" />
-                <a href="mailto:reservations@azurepalms.com" className="hover:text-[#CC7000] transition">reservations@azurepalms.com</a>
+                <Mail size={20} style={{ color: brandColor }} />
+                <a href="mailto:reservations@azurepalms.com" style={{ color: brandColor }} className="transition hover:opacity-70">
+                  reservations@azurepalms.com
+                </a>
               </li>
             </ul>
           </div>
+
         </div>
 
-        <div className="border-t border-[#CC7000]/25 pt-8">
+        <div className="pt-8" style={{ borderTop: '1px solid rgba(255,140,0,0.3)' }}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#B06200] text-sm">
+            <p className="text-sm" style={{ color: brandColor }}>
               &copy; {new Date().getFullYear()} Dahlia Resort. All rights reserved.
             </p>
-            <div className="flex flex-wrap gap-6 text-sm text-[#B06200]">
-              <a href="#" className="hover:text-[#CC7000] transition">Privacy Policy</a>
-              <a href="#" className="hover:text-[#CC7000] transition">Terms of Service</a>
-              <a href="#" className="hover:text-[#CC7000] transition">Cookie Policy</a>
-              <a href="#" className="hover:text-[#CC7000] transition">Accessibility</a>
+            <div className="flex flex-wrap gap-6 text-sm">
+              {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Accessibility'].map((item, i) => (
+                <a key={i} href="#" style={{ color: brandColor }} className="transition hover:opacity-70">
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
         </div>
+
       </div>
     </footer>
   );

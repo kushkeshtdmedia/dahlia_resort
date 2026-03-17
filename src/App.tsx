@@ -148,33 +148,32 @@ function App() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="flex flex-col items-center mb-8">
-            <span className="text-2xl font-serif font-bold text-[#FF8C00] tracking-wider">DAHLIA</span>
-            <span className="text-[10px] tracking-[0.3em] text-[#FF8C00] uppercase">RESORT</span>
-          </div>
-          <div className="flex items-center justify-center gap-6 mb-8">
-            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#FF8C00] leading-tight">
-              Luxury Redefined, Globally Acclaimed
-            </h2>
-            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
-          </div>
-          <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-            Dahlia resort has been recognised as the World's Strongest Hotel Brand
-            and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
-          </p>
-          <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64 md:h-90 relative">
-            <ImageWithFallback
-              src={`${base}images/Resort1.png`}
-              alt="Azure Palms Awards"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
+<section className="py-20 md:py-28 bg-white">
+  <div className="max-w-4xl mx-auto px-6 text-center">
+    <div className="flex flex-col items-center mb-8">
+      <span className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#FF8C00] tracking-wider">DAHLIA</span>
+      <span className="text-sm md:text-base tracking-[0.4em] text-[#FF8C00] uppercase mt-1">RESORT</span>
+    </div>
+    <div className="flex items-center justify-center gap-6 mb-8">
+      <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-[#FF8C00] leading-tight">
+        Luxury Redefined, Globally Acclaimed
+      </h2>
+      <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
+    </div>
+    <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+      Dahlia resort has been recognised as the World's Strongest Hotel Brand
+      and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
+    </p>
+    <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64 md:h-90 relative">
+      <ImageWithFallback
+        src={`${base}images/Resort1.png`}
+        alt="Azure Palms Awards"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
       {/* Offers / Resort View */}
       <section id="offers" className="py-16 md:py-24 bg-white">
         <SectionHeader
