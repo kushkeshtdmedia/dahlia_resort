@@ -4,10 +4,10 @@ import ContactUs from './components/ContactUs';
 import CottageListingPage from './components/CottageListingPage';
 import CottageDetailPage from './components/CottageDetailPage';
 import DestinationPage from './components/DestinationPage';
+import ExperiencePage from './components/ExperiencePage';
 import { Search, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { offers, destinations, events } from './data/rooms.ts';
 import { useRef, useState, useEffect } from 'react';
-import ExperiencePage from './components/ExperiencePage';
 
 const base = import.meta.env.BASE_URL;
 
@@ -31,7 +31,7 @@ function SectionHeader({ title, description }: { title: string; description: str
         <div className="w-16 h-[2px] bg-[#FF8C00] flex-shrink-0 hidden md:block"></div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#FF8C00] leading-tight">{title}</h2>
       </div>
-      <p className="text-[#FF8C00] md:max-w-md lg:max-w-lg text-base leading-relaxed md:pt-2">{description}</p>
+      <p className="text-gray-700 md:max-w-md lg:max-w-lg text-base leading-relaxed md:pt-2">{description}</p>
     </div>
   );
 }
@@ -134,16 +134,7 @@ function App() {
       </div>
     );
   }
-      
-  if (currentPath === '/' || currentPath === '/dahlia_resort/destinations') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <DestinationPage />
-        <Footer />
-      </div>
-    );
-  }
+
   const cottageMatch = currentPath.match(/^\/(?:dahlia_resort\/)?cottage\/(.+)$/);
   if (cottageMatch) {
     return (
@@ -192,7 +183,7 @@ function App() {
             </h2>
             <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
           </div>
-          <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
             Dahlia resort has been recognised as the World's Strongest Hotel Brand
             and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
           </p>
@@ -224,7 +215,7 @@ function App() {
               </div>
               <div className="pt-4 pb-2 border-b-2 border-[#FF8C00]">
                 <h3 className="text-lg font-serif text-[#FF8C00] mb-1">{offer.title}</h3>
-                <p className="text-sm text-[#FF8C00]/70">{offer.subtitle}</p>
+                <p className="text-sm text-gray-600">{offer.subtitle}</p>
               </div>
             </a>
           ))}
@@ -303,7 +294,7 @@ function App() {
               </div>
               <div className="pt-4">
                 <h3 className="text-base font-semibold text-[#FF8C00] transition">{item.name}</h3>
-                <p className="text-sm text-[#FF8C00]/70 mt-1">{item.detail}</p>
+                <p className="text-sm text-gray-600 mt-1">{item.detail}</p>
               </div>
             </a>
           ))}
@@ -332,7 +323,7 @@ function App() {
               </div>
               <div className="pt-4 pb-3 border-b-2 border-[#FF8C00]">
                 <h3 className="text-lg font-serif text-[#FF8C00]">{item.name}</h3>
-                <p className="text-sm text-[#FF8C00]/70 mt-1">{item.desc}</p>
+                <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
               </div>
             </a>
           ))}
@@ -355,7 +346,7 @@ function App() {
           </div>
           <div className="flex flex-col justify-center">
             <h3 className="text-3xl font-serif text-[#FF8C00] mb-6">The Serenity Spa</h3>
-            <p className="text-[#FF8C00]/80 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6">
               Our award-winning spa offers personalised treatments designed to restore balance and vitality.
               From signature rituals inspired by local traditions to modern hydrotherapy,
               every experience is crafted to rejuvenate your body, mind, and spirit.
@@ -364,7 +355,7 @@ function App() {
               {['Signature Rituals & Treatments', 'Thermal Pools & Hydrotherapy', 'Yoga & Meditation Sessions', 'State-of-the-Art Fitness Centre'].map((text, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#FF8C00]"></div>
-                  <span className="text-[#FF8C00] font-medium">{text}</span>
+                  <span className="text-gray-800 font-medium">{text}</span>
                 </div>
               ))}
             </div>
@@ -385,7 +376,7 @@ function App() {
         <div className="absolute inset-0 bg-[#19223F]/60 flex items-center justify-center">
           <div className="text-center px-6 max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-serif text-[#FF8C00] mb-4">Begin Your Extraordinary Journey</h2>
-            <p className="text-base md:text-lg text-[#FF8C00]/80 mb-8">
+            <p className="text-base md:text-lg text-white/80 mb-8">
               Discover the world's finest luxury hospitality experiences with Dahlia Resort
             </p>
             <a href="#" className="inline-block bg-[#FF8C00] text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase hover:bg-[#e07a00] transition shadow-xl">
