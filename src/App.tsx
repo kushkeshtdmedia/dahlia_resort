@@ -3,9 +3,11 @@ import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 import CottageListingPage from './components/CottageListingPage';
 import CottageDetailPage from './components/CottageDetailPage';
+import DestinationPage from './components/DestinationPage';
 import { Search, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { offers, destinations, events } from './data/rooms.ts';
 import { useRef, useState, useEffect } from 'react';
+import ExperiencePage from './components/ExperiencePage';
 
 const base = import.meta.env.BASE_URL;
 
@@ -113,6 +115,35 @@ function App() {
     );
   }
 
+  if (currentPath === '/destinations' || currentPath === '/dahlia_resort/destinations') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <DestinationPage />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPath === '/experiences' || currentPath === '/dahlia_resort/experiences') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <ExperiencePage />
+        <Footer />
+      </div>
+    );
+  }
+      
+  if (currentPath === '/' || currentPath === '/dahlia_resort/destinations') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <DestinationPage />
+        <Footer />
+      </div>
+    );
+  }
   const cottageMatch = currentPath.match(/^\/(?:dahlia_resort\/)?cottage\/(.+)$/);
   if (cottageMatch) {
     return (
@@ -148,32 +179,33 @@ function App() {
       </section>
 
       {/* Intro Section */}
-<section className="py-20 md:py-28 bg-white">
-  <div className="max-w-4xl mx-auto px-6 text-center">
-    <div className="flex flex-col items-center mb-8">
-      <span className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#FF8C00] tracking-wider">DAHLIA</span>
-      <span className="text-sm md:text-base tracking-[0.4em] text-[#FF8C00] uppercase mt-1">RESORT</span>
-    </div>
-    <div className="flex items-center justify-center gap-6 mb-8">
-      <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
-      <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-[#FF8C00] leading-tight">
-        Luxury Redefined, Globally Acclaimed
-      </h2>
-      <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
-    </div>
-    <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-      Dahlia resort has been recognised as the World's Strongest Hotel Brand
-      and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
-    </p>
-    <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64 md:h-90 relative">
-      <ImageWithFallback
-        src={`${base}images/Resort1.png`}
-        alt="Azure Palms Awards"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </div>
-</section>
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="flex flex-col items-center mb-8">
+            <span className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-[#FF8C00] tracking-wider">DAHLIA</span>
+            <span className="text-sm md:text-base tracking-[0.4em] text-[#FF8C00] uppercase mt-1">RESORT</span>
+          </div>
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-serif text-[#FF8C00] leading-tight">
+              Luxury Redefined, Globally Acclaimed
+            </h2>
+            <div className="w-16 h-[2px] bg-[#FF8C00]/40"></div>
+          </div>
+          <p className="text-[#FF8C00] text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+            Dahlia resort has been recognised as the World's Strongest Hotel Brand
+            and a globally acclaimed luxury hospitality destination, setting the benchmark for excellence.
+          </p>
+          <div className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gray-200 h-64 md:h-90 relative">
+            <ImageWithFallback
+              src={`${base}images/Resort1.png`}
+              alt="Azure Palms Awards"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Offers / Resort View */}
       <section id="offers" className="py-16 md:py-24 bg-white">
         <SectionHeader
@@ -181,7 +213,7 @@ function App() {
           description="Dive into extraordinary adventures at our picture-perfect destinations with Dahlia Resort."
         />
         <ScrollableRow id="offers-scroll">
-          {offers.map((offer:any) => (
+          {offers.map((offer: any) => (
             <a key={offer.id} href={offer.link} className="flex-shrink-0 w-[85vw] md:w-[calc(33.333%-16px)] group">
               <div className="h-72 md:h-96 overflow-hidden bg-gray-200">
                 <ImageWithFallback
@@ -206,7 +238,7 @@ function App() {
           description="Relaxing mountain paradises, exotic hill stations, and historic homes of royalty are all within reach at our Nainital Mountain Retreat"
         />
         <ScrollableRow id="destinations-scroll">
-          {destinations.map((dest:any) => (
+          {destinations.map((dest: any) => (
             <a key={dest.id} href={dest.link} className="flex-shrink-0 w-[85vw] md:w-[calc(33.333%-16px)] group">
               <div className="h-72 md:h-96 overflow-hidden bg-gray-200 rounded-sm">
                 <ImageWithFallback
@@ -227,7 +259,7 @@ function App() {
           description="At Dahlia Resort, every celebration unfolds as a masterpiece — immersive, unforgettable, and flawlessly curated."
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 lg:px-10">
-          {events.map((event:any) => (
+          {events.map((event: any) => (
             <a key={event.id} href={event.link} className="group">
               <div className="relative h-80 md:h-80 overflow-hidden bg-gray-200">
                 <ImageWithFallback

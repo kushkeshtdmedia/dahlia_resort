@@ -2,6 +2,8 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 const base = import.meta.env.BASE_URL;
 
+const toSlug = (name: string) => `/${name.toLowerCase().replace(/\s+/g, '-')}`;
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -14,9 +16,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        }`}
     >
       <nav className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex justify-between items-center h-20 lg:h-24">
@@ -26,9 +27,8 @@ export default function Header() {
             <img
               src={`${base}images/MainLogo-removebg-preview.png`}
               alt="Dahlia Resort Logo"
-              className={`h-16 lg:h-24 w-auto object-contain transition-all duration-300 ${
-                scrolled ? '' : 'brightness-0 invert'
-              }`}
+              className={`h-16 lg:h-24 w-auto object-contain transition-all duration-300 ${scrolled ? '' : 'brightness-0 invert'
+                }`}
               style={scrolled ? { filter: 'brightness(0) saturate(100%) invert(55%) sepia(96%) saturate(1000%) hue-rotate(360deg) brightness(101%) contrast(101%)' } : {}}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
@@ -54,10 +54,10 @@ export default function Header() {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center space-x-10" style={{ perspective: '600px' }}>
-            {['Destinations', 'Cottages', 'Hotels', 'Experiences', 'Offers'].map((item) => (
+            {['Destinations', 'Cottages', , 'Experiences',].map((item) => (
               <a
                 key={item}
-                href={item === 'Cottages' ? '/cottages' : `#${item.toLowerCase()}`}
+                href={toSlug(item as string)}
                 className="text-sm font-medium tracking-wider uppercase transition-all duration-300"
                 style={{
                   color: scrolled ? '#FF8C00' : '#ffffff',
@@ -69,7 +69,6 @@ export default function Header() {
                   e.currentTarget.style.textShadow = scrolled
                     ? '0 2px 8px rgba(255,140,0,0.35)'
                     : '0 2px 8px rgba(255,255,255,0.4)';
-                  e.currentTarget.style.opacity = '1';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateZ(0) scale(1)';
@@ -79,7 +78,7 @@ export default function Header() {
                 {item}
               </a>
             ))}
-            <button
+            {/* <button
               className="text-sm font-medium tracking-wider uppercase flex items-center gap-1 transition-all duration-300"
               style={{
                 color: scrolled ? '#FF8C00' : '#ffffff',
@@ -97,7 +96,7 @@ export default function Header() {
               }}
             >
               More <ChevronDown size={16} />
-            </button>
+            </button> */}
           </div>
 
           {/* Desktop Right Actions */}
@@ -157,10 +156,10 @@ export default function Header() {
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t shadow-lg">
           <div className="px-6 py-6 space-y-4">
-            {['Cottages', 'Hotels', 'Experiences', 'Offers', 'Memberships'].map((item) => (
+            {['Destinations', 'Cottages', 'Hotels', 'Experiences', 'Offers', 'Memberships'].map((item) => (
               <a
                 key={item}
-                href={item === 'Cottages' ? '/cottages' : `#${item.toLowerCase()}`}
+                href={toSlug(item)}
                 className="block hover:text-[#FF8C00] transition font-medium tracking-wider uppercase text-sm py-2"
                 style={{ color: '#374151' }}
                 onClick={() => setIsMenuOpen(false)}
